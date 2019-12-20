@@ -400,10 +400,14 @@ public class ThemeableBrowser extends CordovaPlugin {
                         }
 
                         // Clean up.
-                        dialog = null;
+                        inAppWebView.clearHistory();
+                        inAppWebView.clearCache(false);
+                        inAppWebView.onPause();
+                        inAppWebView.destroy();
                         inAppWebView = null;
                         edittext = null;
                         callbackContext = null;
+                        dialog = null;
                     }
                 });
 
